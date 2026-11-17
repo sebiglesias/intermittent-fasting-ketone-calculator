@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intermittent Fasting Metabolic Phase & Ketone Stage Calculator — Accurate Material Estimator</title>
+  <meta name="description" content="Calculate metabolic fasting stages across hours elapsed, including expected blood beta-hydroxybutyrate ketone ranges and cellular autophagy activation.">
+  <link rel="canonical" href="https://sebiglesias.com.ar/intermittent-fasting-ketone-calculator/">
+  <meta name="theme-color" content="#8b5cf6">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Intermittent Fasting Metabolic Phase & Ketone Stage Calculator">
+  <meta property="og:description" content="Calculate metabolic fasting stages across hours elapsed, including expected blood beta-hydroxybutyrate ketone ranges and cellular autophagy activation.">
+  <meta property="og:url" content="https://sebiglesias.com.ar/intermittent-fasting-ketone-calculator/">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BNDBQP0W7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BNDBQP0W7');
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-3381238987477190">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381238987477190" crossorigin="anonymous"></script>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Intermittent Fasting Metabolic Phase & Ketone Stage Calculator",
+    "url": "https://sebiglesias.com.ar/intermittent-fasting-ketone-calculator/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "Calculate metabolic fasting stages across hours elapsed, including expected blood beta-hydroxybutyrate ketone ranges and cellular autophagy activation.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When does cellular autophagy begin during a fast?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In humans, cellular autophagy (the lysosomal degradation of damaged proteins and organelles) begins up-regulating as hepatic glycogen empties, typically around 16 to 24 hours of complete fasting, with peak expression observed between 36 and 48 hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What breaks a fast?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Any substantial caloric intake (> 30\u201350 calories), especially rapidly absorbed carbohydrates or proteins containing leucine, stimulates insulin and activates the mTOR pathway, temporarily attenuating autophagy and hepatic ketogenesis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I tell if I am in nutritional ketosis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A calibrated blood ketone meter testing capillary blood is the gold standard. A reading of 0.5 to 3.0 mmol/L beta-hydroxybutyrate confirms nutritional ketosis."
+        }
+      }
+    ]
+  }
+]
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">🧬 Cellular Autophagy & Metabolic Transition Standards</div>
+      <h1>Intermittent Fasting Metabolic Stage Calculator</h1>
+      <p class="subtitle">Estimate metabolic transitions across fasting hours: liver glycogen depletion, lipolysis, beta-hydroxybutyrate ketosis, and cellular autophagy.</p>
+    </header>
+
+    <!-- AdSense Top Banner -->
+    <div style="text-align:center; margin: 16px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3381238987477190"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <main class="calc-grid">
+      <!-- Inputs Card -->
+      <form class="card" id="intermittent-fasting-ketone-calculator-form" onsubmit="event.preventDefault();">
+        <h2>📐 Fasting Timeline & Pre-Fast State</h2>
+        
+        <div class="input-row">
+          <div class="form-group">
+            <label for="hoursElapsed">Hours Elapsed Since Last Meal</label>
+            <div class="input-wrap">
+              <input type="number" id="hoursElapsed" step="1" min="1" max="96" value="18" required>
+              <span class="input-suffix">hours</span>
+            </div>
+            <span class="hint">16/8 = 16h; OMAD = 23h; Prolonged = 36h-72h</span>
+          </div>
+          <div class="form-group">
+            <label for="preFastDiet">Pre-Fast Dietary Baseline</label>
+            <select id="preFastDiet">
+              <option value="standard">Standard Carb Diet (Liver glycogen full: 12-16h depletion)</option>
+              <option value="lowcarb" selected>Low-Carb / Ketogenic (Depletion accelerated to 8-10h)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fastActivity">Activity Level During Fast</label>
+          <select id="fastActivity">
+            <option value="sedentary">Sedentary (Desk work, resting)</option>
+            <option value="active" selected>Moderately Active (10,000 steps / light cardio)</option>
+            <option value="intense">Intense Training (Heavy lifting / vigorous aerobic exercise)</option>
+          </select>
+        </div>
+        
+      </form>
+
+      <!-- Results Card -->
+      <div class="card">
+        <h2>📊 Metabolic State & Expected Ketone Levels</h2>
+        
+        <div class="result-hero">
+          <div class="result-hero-val" id="resMetabolicStage">Early Ketosis & Autophagy</div>
+          <div class="result-hero-label">Dominant Physiological State</div>
+        </div>
+
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-desc">Estimated Blood Ketones (BHB)</div>
+            <div class="spec-val" id="resKetones">0.6 – 1.2 mmol/L</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-desc">Liver Glycogen Status</div>
+            <div class="spec-val" id="resGlycogen">Depleted (>85%)</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-desc">Primary Fuel Substrate</div>
+            <div class="spec-val" id="resSubstrate">Fatty Acid Beta-Oxidation</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-desc">Autophagy Pathway (AMPK/mTOR)</div>
+            <div class="spec-val" id="resAutophagy">Moderately Activated</div>
+          </div>
+        </div>
+        
+      </div>
+    </main>
+
+    
+    <!-- Clinical & Safety Disclaimers -->
+    <section class="medical-card">
+      <h3>⚠️ Clinical Safety & Absolute Contraindications</h3>
+      <div class="warning-callout">
+        <strong>Absolute Medical Contraindications:</strong>
+        Intermittent and prolonged fasting are strictly contraindicated for individuals with Type 1 Diabetes Mellitus (risk of life-threatening diabetic ketoacidosis / DKA), history of clinical eating disorders (anorexia nervosa, bulimia), pregnancy, lactation, and growing adolescents.
+        <br><br>
+        <strong>Ketoacidosis vs. Nutritional Ketosis:</strong> Nutritional ketosis achieved through fasting typically produces serum beta-hydroxybutyrate levels between 0.5 and 3.5 mmol/L with normal blood glucose. Diabetic ketoacidosis involves dangerous unregulated ketone spikes (> 10.0 mmol/L) accompanied by severe hyperglycemia and metabolic acidosis.
+        <br><br>
+        <strong>Electrolyte Depletion:</strong> Prolonged fasting lowers circulating insulin, leading to renal natriuresis (accelerated excretion of sodium and water). Supplementing elemental sodium, potassium, and magnesium prevents the "keto flu" and orthostatic hypotension.
+      </div>
+    </section>
+
+    <!-- Clinical Evidence Citations -->
+    <section class="citations-section">
+      <h3>📚 Peer-Reviewed Intermittent Fasting Research (PubMed / NLM)</h3>
+      <div class="citations-grid">
+        <div class="citation-item">
+          <div class="citation-title">Effects of Intermittent Fasting on Health, Aging, and Disease</div>
+          <div class="citation-authors">de Cabo R, Mattson MP. — <em>New England Journal of Medicine</em>, 2019</div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/31881139/" target="_blank" rel="noopener noreferrer" class="citation-link">PubMed PMID: 31881139 ↗</a>
+        </div>
+        <div class="citation-item">
+          <div class="citation-title">Flipping the Metabolic Switch: Physiological Effects of Intermittent Fasting</div>
+          <div class="citation-authors">Anton SD, Moehl K, Donahoo WT, et al. — <em>Obesity (Silver Spring)</em>, 2018</div>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/29086496/" target="_blank" rel="noopener noreferrer" class="citation-link">PubMed PMID: 29086496 ↗</a>
+        </div>
+      </div>
+    </section>
+        
+
+    <!-- Amazon Supplies Box -->
+    <section class="supplies-card">
+      <h3>🔬 Recommended Ketone Monitors & Fasting Electrolytes</h3>
+      <div class="supplies-grid">
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">Keto-Mojo GK+ Blood Glucose & β-Ketone Dual Testing Meter</div>
+            <div class="supply-desc">Medical-grade precision blood monitor measuring exact mmol/L beta-hydroxybutyrate concentrations.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=keto+mojo+blood+ketone+meter&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">Check on Amazon →</a>
+        </div>
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">Fasting Raw Electrolyte Unflavored Mineral Powder (Zero Calorie)</div>
+            <div class="supply-desc">Pure sodium chloride, potassium chloride, and magnesium malate powder with zero sugar or sweeteners.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=fasting+electrolytes+powder+unflavored&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">Check on Amazon →</a>
+        </div>
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">High-Accuracy Digital Pocket Ketone Test Strips (50 ct)</div>
+            <div class="supply-desc">Individually foil-wrapped blood ketone testing strips compatible with GK+ meters.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=keto+mojo+ketone+test+strips&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">Check on Amazon →</a>
+        </div>
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">Insulated Stainless Steel Tea Infuser Flask (32 oz)</div>
+            <div class="supply-desc">Leak-proof travel tumbler for brewing organic green tea and ginger infusions during clean fasts.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=stainless+steel+tea+infuser+bottle&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">Check on Amazon →</a>
+        </div>
+      </div>
+      <p style="font-size:0.75rem; color:#94a3b8; margin-top:14px; margin-bottom:0; text-align:center;">
+        ⚖️ <em>Affiliate Notice: As an Amazon Associate, this site earns from qualifying purchases at no additional cost to you. We strictly link to blood beta-hydroxybutyrate meters, ketone test strips, and zero-calorie fasting electrolytes.</em>
+      </p>
+    </section>
+
+    <!-- FAQ Section for SEO -->
+    <section class="faq-section">
+      <h2 style="font-size:1.35rem; color:#ffffff; margin-bottom:16px;">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-q">When does cellular autophagy begin during a fast?</div>
+        <div class="faq-a">In humans, cellular autophagy (the lysosomal degradation of damaged proteins and organelles) begins up-regulating as hepatic glycogen empties, typically around 16 to 24 hours of complete fasting, with peak expression observed between 36 and 48 hours.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What breaks a fast?</div>
+        <div class="faq-a">Any substantial caloric intake (> 30–50 calories), especially rapidly absorbed carbohydrates or proteins containing leucine, stimulates insulin and activates the mTOR pathway, temporarily attenuating autophagy and hepatic ketogenesis.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How can I tell if I am in nutritional ketosis?</div>
+        <div class="faq-a">A calibrated blood ketone meter testing capillary blood is the gold standard. A reading of 0.5 to 3.0 mmol/L beta-hydroxybutyrate confirms nutritional ketosis.</div>
+      </div>
+    </section>
+
+    <!-- Bottom AdSense Banner -->
+    <div style="text-align:center; margin: 32px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3381238987477190"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <footer>
+      <p>© 2026 <a href='https://sebiglesias.com.ar/'>sebiglesias.com.ar</a> · Intermittent Fasting Stage Calculator. Educational and metabolic research tool. Not medical advice.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
